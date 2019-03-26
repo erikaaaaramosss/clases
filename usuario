@@ -1,0 +1,21 @@
+<?php
+class Usuario {
+var $IdUsuario;
+var $ccUsuario;
+var $nomUsuario;
+var $apeUsuario;
+var  $contraUsuario;
+
+public function ingresarUsuario($user,$cc,$nombre,$apellido,$pwd){
+
+$this->IdUsuario = $user;
+$this->ccUsuario = $cc;
+$this->nomUsuario = $nombre;
+$this->apeUsuario = $apellido;
+$this->contraUsuario = $pwd;
+
+    }
+
+}
+
+?>
