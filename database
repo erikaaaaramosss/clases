@@ -1,0 +1,22 @@
+
+<?php
+
+
+class conexion{
+
+function basedatos(){
+$server="localhost";
+$username='gestion';
+$password='2018**Proy3c7o';
+$database='gestion_cco';
+$conn = "";
+
+   try {
+   $conn = new PDO("mysql:host=$server;dbname=$database;",$username,$password);
+   } catch (PDOException $e) {
+   die('Connected failed: '.$e->getMessage());
+
+     }
+  }
+}
+?>
