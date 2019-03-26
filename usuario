@@ -1,4 +1,7 @@
 <?php
+
+
+include("database.php"); 
 class Usuario {
 var $IdUsuario;
 var $ccUsuario;
@@ -14,7 +17,25 @@ $this->nomUsuario = $nombre;
 $this->apeUsuario = $apellido;
 $this->contraUsuario = $pwd;
 
-    }
+
+$database = new database;
+$database->basedatos();
+
+$sentencia = $conn->prepare("INSERT INTO 
+usuarios  ( IdUsuario, ccUsuario, nomUsuario, apeUsuario, contraUsuario)
+VALUES
+(:IdUsuario,:ccUsuario,:nomUsuario,:apeUsuario,:contraUsuario)");
+				
+				
+		$sentencia->bindParam(':IdUsuario', $user);
+		$sentencia->bindParam(':ccUsuario', $ccUsuario);
+	    $sentencia->bindParam(':nomUsuario', $nomUsuario);	
+		$sentencia->bindParam(':apeUsuario', $apeUsuario);	
+		$sentencia->bindParam(':contraUsuario', $contraUsuario);			
+	    $sentencia->execute();	
+
+print"<script>alert (Usuario registrado exitosamente.);</script>";	
+}
 
 }
 
